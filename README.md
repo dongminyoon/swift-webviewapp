@@ -4,29 +4,27 @@
 
 ***WKWebView vs UIWebView 차이***
 
-👉 우선 iOS 2.0부터 **`UIWebView`**가 도입되었고, **`WKWebView`**는 iOS 8.0에서 도입되었다.
+👉 우선 iOS 2.0부터 `UIWebView`가 도입되었고, `WKWebView`는 iOS 8.0에서 도입되었다.
 
-👉 **`UIWebView`**는 **UIkit**의 일부이고 **`WKWebView`**는 **WebKit**이라는 프레임워크의 일부이다.
+👉 `UIWebView`는 **UIkit**의 일부이고 `WKWebView`는 **WebKit**이라는 프레임워크의 일부이다.
 
-👉 **`WKWebView`**와 **`UIWebView`**의 큰 차이는 성능이다. **`WKWebView`**가 **`UIWebView`**보다 더 높고 효율적인 성능을 보여준다.
+👉 `WKWebView`와 `UIWebView`의 큰 차이는 성능이다. `WKWebView`가 `UIWebView`보다 더 높고 효율적인 성능을 보여준다.
 
-👉 **`WKWebView`**는 8500개의 개체를 렌더링하지만 **`UIWebView`**는 3500개의 개체를 렌더링하며 **`WKWebView`**의 성능은 **`UIWebView`**와 비교하여 두 배이다.
+👉 `WKWebView`는 8500개의 개체를 렌더링하지만 `UIWebView`는 3500개의 개체를 렌더링하며 `WKWebView`의 성능은 `UIWebView`와 비교하여 두 배이다.
 
-👉 **`WKWebView`**는 25%의 CPU을 사용하여 같은 수의 입자를 렌더링하지만, **`UIWebView`**는 동일한 작업에 대해 90%의 CPU을 사용한다.
+👉 `WKWebView`는 25%의 CPU을 사용하여 같은 수의 입자를 렌더링하지만, `UIWebView`는 동일한 작업에 대해 90%의 CPU을 사용한다.
 
-👉 **`UIWebView`**는 한 번 로드되고, 데이터는 쿠키에 저장되므로 다음 번 로딩 시간은 이전에 비해 적다. 그러나 **`WKWebView`**는 쿠키가 저장되지 않으므로 항상 로딩 시간이 동일하다.
+👉 `UIWebView`는 한 번 로드되고, 데이터는 쿠키에 저장되므로 다음 번 로딩 시간은 이전에 비해 적다. 그러나 `WKWebView`는 쿠키가 저장되지 않으므로 항상 로딩 시간이 동일하다.
 
-👉 **`WKWebView`**는 프로세스를 벗어나 실행된다. 즉, 메모리와 앱이 별도의 스레드에서 돌아간다. **`UIWebView`**는 앱과 같은 프로세스 내에서 실행된다.
+👉 `WKWebView`는 프로세스를 벗어나 실행된다. 즉, 메모리와 앱이 별도의 스레드에서 돌아간다. `UIWebView`는 앱과 같은 프로세스 내에서 실행된다.
 
-👉 **`WKWebView`**는 JavaScript를 비동기적으로 처리 : 네이티브 코드 간의 통신의 **`WKWebView`**에서 비동기적으로 처리된다. 즉, 일반적으로 더 빠르게 실행됩니다.   
+👉 `WKWebView`는 JavaScript를 비동기적으로 처리 : 네이티브 코드 간의 통신의 `WKWebView`에서 비동기적으로 처리된다. 즉, 일반적으로 더 빠르게 실행됩니다.   
 
 <br>
 
-
-
 ---
 
-###Step 2
+### Step2
 
 ***WKWebView 이용***
 
