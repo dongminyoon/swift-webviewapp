@@ -12,10 +12,12 @@ import Alamofire
 
 class ViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setWebView()
         loadWebPage()
     }
     
@@ -32,6 +34,11 @@ class ViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    private func setWebView() {
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+    }
 
     private func loadWebPage() {
         guard let url = URL(string: "https://www.coupang.com/") else { return }
@@ -44,7 +51,7 @@ extension ViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         let configuration = WKWebViewConfiguration()
         let contentController = WKUserContentController()
-        let userScript = WKUserScript(source: "", injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        let userScript = WKUserScript(source: "", injectionTime: .atDocumentStart, forMainFrameOnly: false)
         contentController.addUserScript(userScript)
         configuration.userContentController = contentController
         return WKWebView(frame: webView.frame, configuration: configuration)
@@ -80,8 +87,14 @@ extension ViewController: WKUIDelegate {
 }
 
 extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        indicator.isHidden = false
+        indicator.startAnimating()
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
+        indicator.stopAnimating()
+        indicator.isHidden = true
     }
 }
 

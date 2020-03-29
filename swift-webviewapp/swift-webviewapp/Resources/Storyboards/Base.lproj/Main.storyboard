@@ -23,10 +23,15 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Smi-Q1-6Vw">
+                                <rect key="frame" x="177.66666666666666" y="401" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Smi-Q1-6Vw" firstAttribute="centerY" secondItem="YnM-7V-umt" secondAttribute="centerY" id="5cu-Fn-kEU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YnM-7V-umt" secondAttribute="bottom" id="9yA-Ni-p3B"/>
+                            <constraint firstItem="Smi-Q1-6Vw" firstAttribute="centerX" secondItem="YnM-7V-umt" secondAttribute="centerX" id="Lpy-GL-xHR"/>
                             <constraint firstItem="YnM-7V-umt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Z6u-Nm-7Cn"/>
                             <constraint firstItem="YnM-7V-umt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dz8-4d-ylF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YnM-7V-umt" secondAttribute="trailing" id="moM-9h-NBc"/>
@@ -34,6 +39,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="Smi-Q1-6Vw" id="auX-mS-kgm"/>
                         <outlet property="webView" destination="YnM-7V-umt" id="S5M-C2-9wH"/>
                     </connections>
                 </viewController>
