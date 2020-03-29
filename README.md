@@ -116,3 +116,117 @@ func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message:
 
 <img src="./images/excuteSceen.png" height="400px">
 
+---
+
+### Step3
+
+***WKUserContentController***
+
+👉 이 클래스를 통해서 웹뷰의 인터페이스에 맞는 규칙을 정해 지정해줄 수 있다. 즉, 네이티브(iOS)와 웹(JS)간의 통신을 통해 웹에서 네이티브의 기능을, 네이티브에서 웹을 호출할 수 있게 해준다.
+
+ 여기서 `WKUserContentController`을 초기설정하기 위해 `WKWebViewConfiguration`이라는 변수가 필요하다.
+
+<br>
+
+***WKWebViewConfiguration***
+
+👉 초기 `WKWebView`을 설정하는데 쓰이는 변수이다.
+
+> 🔵 `applicationNameForUserAgent` : User-Agent 문자열에 사용된 애플리케이션의 이름
+>
+> 🔵 `preferences` : 웹뷰가 사용하는 WKPreferences 객체
+>
+> 🔵 `processPool` : 뷰의 웹 컨텐츠 프로세스를 포함하는 process pool
+>
+> 🔵 `userContentController ` : 웹 컨텍스트와 연결한 사용자 Content 컨트롤러
+>
+> 🔵 `websiteDatastore` : 웹 뷰에서 사용한 웹 사이트 데이터 저장소
+
+<br>
+
+***WKUserScript***
+
+👉 웹페이지에 삽입할 수 있는 스크립트를 나타낸다. 
+
+> 🔵 `source: String` : JS의 소스코드이다.
+>
+> 🔵 `injectionTime: WKUserScriptInjectionTime` : JS 소스코드가 언제 웹페이지에 주입되는 시간에 관한 변수이다.
+>
+> 🔵 `isForMainFrameOnly: Bool` : 스크립트가 메인 프레임에만 삽입되어야 하는지 아닌지에 대한 코드이다. 
+
+<br>
+
+***IBOutlet으로 WKWebView 선언 후, WebView 세팅하기***
+
+```swift
+class ViewController: UIViewController {
+  @IBOutlet weak var webView: WKWebView!
+}
+
+extension ViewController: WKUIDelegate {
+  // WKWebView가 처음 생성될 때, 불리는 method
+  func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+    // WKWebView의 전체적인 설정을 맡는다.
+    let configuration = WKWebViewConfiguration()
+    let contentController = WKUserContentController()
+    let userScript = WKUserScript(source: "", injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+    contentController.addUserScript(userScript)
+    configuration.userContentController = contentController
+    return WKWebView(frame: webView.frame, configuration: configuration)
+  }
+}
+```
+
+<br>
+
+***WKWebView에서 Activity Indicator 사용하여 로딩화면 보여주기***
+
+ `WKNavigationDelegate` 메소드
+
+> **`webView(_ webView: WKWebView, didCommit navigation: WKNavigation!)`** : Web View에서 웹 콘텐츠를 받기 시작할 때 호출된다.
+>
+> **`webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!)`** : 웹 콘텐츠가 Web View에 로드되기 시작할 때 호출된다.
+>
+> **`webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!)`** : Web View가 서버 리디렉션을 수신하면 호출된다.
+>
+> **`webView(_ webView: WKWebView, didFinish navigation: WKNavigation!)`** : 탐색을 완료하면 호출된다.
+
+ 여기서 로딩을 하기 위해서는 웹 콘텐츠를 받기 시작할 때, 애니메이션을 시작하고 웹 뷰를 받아오고 나서 애니메이션을 멈춰주면 된다.
+
+```swift
+@IBOutlet weak var indicator: UIActivityIndicatorView!
+
+func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+  indicator.isHidden = false
+  indicator.startAnimating()
+}
+
+func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+  indicator.stopAnimating()
+  indicator.isHidden = true
+}
+```
+
+<br>
+
+***WKWebView 앞으로 가기, 뒤로 가기 액션***
+
+```swift
+// 앞으로 가기 버튼
+@IBAction func forwardPage(_ sender: UIButton) {
+  if(webView.canGoForward) {
+    webView.goForward()
+  } else {
+    // nothing else 
+  }
+}
+// 뒤로 가기 버튼
+@IBAction func backPage(_ sender: UIButton) {
+  if(webView.canGoBack) {
+    webView.goBack()
+  } else {
+    // nothing else
+  }
+}
+```
+
