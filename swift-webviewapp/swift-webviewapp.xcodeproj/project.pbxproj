@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,12 @@
 		9DEFE065242F6081001FFFAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DEFE063242F6081001FFFAC /* Main.storyboard */; };
 		9DEFE067242F6085001FFFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DEFE066242F6085001FFFAC /* Assets.xcassets */; };
 		9DEFE06A242F6085001FFFAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DEFE068242F6085001FFFAC /* LaunchScreen.storyboard */; };
+		CB65163A3F9A949B4B967B2F /* Pods_swift_webviewapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB78C376F512A811338288 /* Pods_swift_webviewapp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		776DE822DF87937CDEA22A97 /* Pods-swift-webviewapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-webviewapp.debug.xcconfig"; path = "Target Support Files/Pods-swift-webviewapp/Pods-swift-webviewapp.debug.xcconfig"; sourceTree = "<group>"; };
+		7D0154259F6F9A11560B0B10 /* Pods-swift-webviewapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-webviewapp.release.xcconfig"; path = "Target Support Files/Pods-swift-webviewapp/Pods-swift-webviewapp.release.xcconfig"; sourceTree = "<group>"; };
 		9DEFE05A242F6081001FFFAC /* swift-webviewapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-webviewapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DEFE05D242F6081001FFFAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DEFE05F242F6081001FFFAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		9DEFE066242F6085001FFFAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DEFE069242F6085001FFFAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DEFE06B242F6085001FFFAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAEB78C376F512A811338288 /* Pods_swift_webviewapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_webviewapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB65163A3F9A949B4B967B2F /* Pods_swift_webviewapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3689D1B089750DD99528A0D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAEB78C376F512A811338288 /* Pods_swift_webviewapp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9DEFE051242F6081001FFFAC = {
 			isa = PBXGroup;
 			children = (
 				9DEFE05C242F6081001FFFAC /* swift-webviewapp */,
 				9DEFE05B242F6081001FFFAC /* Products */,
+				A6F9B761113F73AC7E073343 /* Pods */,
+				3689D1B089750DD99528A0D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +146,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A6F9B761113F73AC7E073343 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				776DE822DF87937CDEA22A97 /* Pods-swift-webviewapp.debug.xcconfig */,
+				7D0154259F6F9A11560B0B10 /* Pods-swift-webviewapp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DEFE06E242F6085001FFFAC /* Build configuration list for PBXNativeTarget "swift-webviewapp" */;
 			buildPhases = (
+				0E8A525C10292B689D6E3C06 /* [CP] Check Pods Manifest.lock */,
 				9DEFE056242F6081001FFFAC /* Sources */,
 				9DEFE057242F6081001FFFAC /* Frameworks */,
 				9DEFE058242F6081001FFFAC /* Resources */,
+				2486E3E8F43FDA92DC993163 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +222,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E8A525C10292B689D6E3C06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swift-webviewapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2486E3E8F43FDA92DC993163 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swift-webviewapp/Pods-swift-webviewapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swift-webviewapp/Pods-swift-webviewapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swift-webviewapp/Pods-swift-webviewapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9DEFE056242F6081001FFFAC /* Sources */ = {
@@ -346,11 +414,13 @@
 		};
 		9DEFE06F242F6085001FFFAC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 776DE822DF87937CDEA22A97 /* Pods-swift-webviewapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "swift-webviewapp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,11 +434,13 @@
 		};
 		9DEFE070242F6085001FFFAC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D0154259F6F9A11560B0B10 /* Pods-swift-webviewapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "swift-webviewapp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
